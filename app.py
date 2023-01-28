@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, url_for
-from task import Task
-import task as task
+from task import Task, tasks
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import InputRequired, Length, ValidationError
@@ -30,7 +29,8 @@ def task():
     form = TaskForm()
     if form.validate_on_submit():
         Task(name=form.name.data, description=form.description.data, department=form.department.data)
-    return render_template('task.html', form=form, tasks=task.tasks)
+        return render_template('task.html', form=form, tasks=tasks)
+    return render_template('task.html', form=form, tasks=tasks)
 
 
 if __name__ == '__main__':
