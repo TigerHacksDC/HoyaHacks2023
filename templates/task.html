@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='task.css') }}">
 </head>
 <body>
     <h1>Add a new task</h1>
@@ -20,6 +21,7 @@
         <h1>{{ item.name }}</h1>
         <p>{{ item.description }}</p>
         <p>{{ item.department }}</p>
+        <p>Edit {{ edit.hidden_tag() }} {{ edit.select }} {{ edit.field }} {{ edit.submit }}</p>
         <br>
     {% endfor %}
 </body>
