@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Go to /task for now</h1>
+
+    <h2>Task List</h2>
+    {% for item in tasks %}
+        <h1>{{ item.name }}</h1>
+        <p>{{ item.description }}</p>
+        <p>{{ item.department }}</p>
+        <br>
+    {% endfor %}
+
+</body>
+</html>
