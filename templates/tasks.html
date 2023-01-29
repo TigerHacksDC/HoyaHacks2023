@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>Add a new task</h1>
-    <div>
+
+    <div clsss = "child">
         <form action="" method = "POST">
             {{ form.hidden_tag() }}
             <p>Name: {{  form.name}}</p>
@@ -16,6 +17,7 @@
             {{ form.submit() }}
         </form>
     </div>
+
     {% if errors|length > 0 %}
     <h3>You have the following errors:</h3>
         {% for error in errors %}
@@ -33,7 +35,7 @@
         <br>
         <form action="" method = "POST">
             <input type="hidden" id="index" name="index" value="{{ loop.index }}">
-            <p >Edit {{ edit.hidden_tag() }} {{ edit.select }} {{ edit.field }} {{ edit.submit }}</p>
+            <p >{{ edit.hidden_tag() }} {{ edit.select }} {{ edit.field }} {{ edit.submit }}</p>
         </form>
         <form action="" method = "POST">
             <input type="hidden" id="index" name="index" value="{{ loop.index }}">

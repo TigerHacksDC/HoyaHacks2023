@@ -29,8 +29,17 @@ input[type="submit"] {
     color: white;
     outline: 1px white;
 }
+input[type="submit"]:hover {
+    background: #8190de;
+    color: #131212;
+    outline: 1px #2d3b85;
+}
+
 #parent {
     white-space: nowrap;
+}
+#parent p {
+    display: inline;
 }
 .child {
     display: inline-block;
