@@ -7,7 +7,7 @@ from wtforms.validators import InputRequired, Length
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = app.config.from_pyfile('config.py')
+app.config['SECRET_KEY'] = 'sifhuiaohfuiahZUFHQDULFCHASE32847870R2R2DUHCUOASDHNVUOSADHVUIHDSAUIVBALIVC'
 
 class EditTask(FlaskForm):
     hidden = HiddenField('hidden')

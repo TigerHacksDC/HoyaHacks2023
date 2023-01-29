@@ -1,0 +1,15 @@
+
+* {
+	font-size:20px;
+	line-height:200%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    color: #ffd6d6;
+    background-color: #0e1642; /* light pink */
+}
+#task {
+    border : 1px solid #ffd6d6;
+    border-radius: 10px;
+}

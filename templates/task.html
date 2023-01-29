@@ -25,7 +25,7 @@
         <p>{{ item.description }}</p>
         <p>{{ item.department.name }}</p>
         <form action="" method = "POST">
-            <input type="hidden" id="index" name="index" value="{{ loop.index }}" size = "10">
+            <input type="hidden" id="index" name="index" value="{{ loop.index }}">
             <p >Edit {{ edit.hidden_tag() }} {{ edit.select }} {{ edit.field }} {{ edit.submit }}</p>
         </form>
         <form action="" method = "POST">
