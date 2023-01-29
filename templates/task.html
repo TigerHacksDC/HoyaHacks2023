@@ -16,16 +16,21 @@
             {{ form.submit() }}
         </form>
     </div>
+    {% if tasks|length > 0 %}
     <h2>Task List</h2>
+    {% endif %}
     {% for item in tasks %}
         <div id = "task">
         <h1>{{ item.name }}</h1>
         <p>{{ item.description }}</p>
-        <p>{{ item.department.name }}: {{ item.department.members }}</p>
-        <p>{{loop.index}}</p>
+        <p>{{ item.department.name }}</p>
         <form action="" method = "POST">
-            {% set edit.hidden.value = loop.index %}
+            <input type="hidden" id="index" name="index" value="{{ loop.index }}" size = "10">
             <p >Edit {{ edit.hidden_tag() }} {{ edit.select }} {{ edit.field }} {{ edit.submit }}</p>
+        </form>
+        <form action="" method = "POST">
+            <input type="hidden" id="index" name="index" value="{{ loop.index }}">
+            <p >Delete {{ delete.hidden_tag() }} {{ delete.submit }}</p>
         </form>
         <br>
         </div>

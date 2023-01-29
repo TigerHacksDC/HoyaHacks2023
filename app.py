@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from task import Task, tasks
 from department import Department, departments, DepartmentForm
 from flask_wtf import FlaskForm
@@ -44,12 +44,12 @@ def task():
 
         elif edit.validate():
             if edit.select.data == 'Edit Name':
-                tasks[int(edit.hidden.data)].name = edit.field.data
+                tasks[int(request.form['index'])-1].name = edit.field.data
             else:
-                tasks[int(edit.hidden.data)].description = edit.field.data
+                tasks[int(request.form['index'])-1].description = edit.field.data
             return redirect(url_for('task'))
         elif delete.validate():
-            tasks.pop(int(0))
+            tasks.pop(int(request.form['index'])-1)
             return redirect(url_for('task'))
     return render_template('task.html', form=form, tasks=tasks, edit=edit, delete=delete)
 
