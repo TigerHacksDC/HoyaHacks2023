@@ -1,2 +1,3 @@
 Flask~=2.2.2
 WTForms~=3.0.1
+flask-wtf~=1.1.1
