@@ -1,7 +1,7 @@
 
 * {
 	font-size:20px;
-	line-height:200%;
+	line-height:150%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -13,6 +13,7 @@ body {
 #task {
     border : 1px solid #ffd6d6;
     border-radius: 10px;
+    margin-top: 20px;
 }
 
 input[type="text"] {
@@ -23,13 +24,13 @@ input[type="text"] {
     color: white;
     outline: 1px white;
 }
-input[type="submit"] {
+input[type="submit"], input[type="button"] {
     border: 1px #ffffff;
     background: #2d3b85;
     color: white;
     outline: 1px white;
 }
-input[type="submit"]:hover {
+input[type="submit"]:hover, input[type="button"]:hover {
     background: #8190de;
     color: #131212;
     outline: 1px #2d3b85;
@@ -44,4 +45,14 @@ input[type="submit"]:hover {
 .child {
     display: inline-block;
 
+}
+
+#navbar{
+    display: inline-flex;
+}
+#modify {
+    border: 1px #ffffff;
+    background: #2d3b85;
+    color: white;
+    outline: 1px white;
 }

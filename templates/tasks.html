@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tasking</title>
+    <title>Tasks</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
-    <form action="/cleartasks/" method="post">
-        <button name="clearBtn" type="submit">Clear Tasks</button>
-    </form>
-
+    <div id = "navbar">
+        <form action="/cleartasks/" method="post">
+            <button class="modify" name="clearBtn" type="submit">Clear Tasks</button>
+        </form>
+            <form action="/departments" method="post">
+            <button class="modify" name="departmentsBtn" type="submit">Switch to Departments</button>
+        </form>
+    </div>
     <h1>Add a new task</h1>
     <div clsss = "child">
         <form action="" method = "POST">
@@ -28,9 +32,7 @@
             <li>{{ error }}</li>
         {% endfor %}
     {% endif %}
-    {% if tasks|length > 0 %}
-    <h2>Tasks</h2>
-    {% endif %}
+    <br>
     {% for item in tasks %}
         <div id = "task">
         <h3>Task: {{ item.name }}</h3>
@@ -43,7 +45,7 @@
         </form>
         <form action="" method = "POST">
             <input type="hidden" id="index" name="index" value="{{ loop.index }}">
-            <p >Delete {{ delete.hidden_tag() }} {{ delete.submit }}</p>
+            <p >{{ delete.hidden_tag() }} {{ delete.submit }}</p>
         </form>
         </div>
     {% endfor %}

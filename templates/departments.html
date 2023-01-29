@@ -7,9 +7,14 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
-    <form action="/cleardepartments/" method="post">
-        <button name="clearBtn" type="submit">Clear Departments</button>
-    </form>
+    <div id = "navbar">
+        <form action="/cleardepartments/" method="post">
+            <button class="modify" name="clearBtn" type="submit">Clear Departments</button>
+        </form>
+        <form action="/tasks" method="post">
+            <button class="modify" name="tasksBtn" type="submit">Switch to Tasks</button>
+        </form>
+    </div>
     <div id ="parent">
     <h1>Add a new department</h1>
     <div class="child">
@@ -26,9 +31,7 @@
             <li>{{ error }}</li>
         {% endfor %}
     {% endif %}
-    {% if departments|length > 0 %}
-    <h2>Departments</h2>
-    {% endif %}
+    <br>
     {% for item in departments %}
         <div id = "task">
         <h3>Department: {{ item.name }}</h3>
@@ -45,7 +48,7 @@
         </form>
         <form action="" method = "POST">
             <input type="hidden" id="index" name="index" value="{{ loop.index }}">
-            <p >Delete {{ delete.hidden_tag() }} {{ delete.submit }}</p>
+            <p >{{ delete.hidden_tag() }} {{ delete.submit }}</p>
         </form>
         </div>
     {% endfor %}
