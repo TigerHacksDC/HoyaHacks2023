@@ -1,7 +1,3 @@
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
-from wtforms.validators import InputRequired, Length, ValidationError
-
 departments_list = []
 
 
@@ -28,7 +24,3 @@ class Department:
             self.members = [members]
         departments_list.append(self)
 
-
-class DepartmentForm(FlaskForm):
-    member = StringField('member', validators=[InputRequired(), Length(min=1, max=16)])
-    submit = SubmitField('Add Department')

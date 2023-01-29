@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 from task import Task, tasks_list
-from department import Department, departments_list, DepartmentForm, contains_member, contains_department_name
+from department import Department, departments_list, contains_member, contains_department_name
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, HiddenField
 from wtforms.validators import InputRequired, Length
