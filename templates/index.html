@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Main Page</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
-    <h1>Flow</h1>
-    <h3>Trello, but for education</h3>
-    <br>
+    <h1><span id = "flow">Flow</span>: Trello, but for education</h1>
+    <h3>Explore:</h3>
     <div class="inline">
         <form action="/departments" method="post">
             <button name="departmentsBtn" type="submit">Departments</button>
@@ -19,18 +19,18 @@
         </form>
     </div>
     <br>
-    <h2>What is Flow?</h2>
+    <h2>What is <span id = "flow">Flow</span>?</h2>
     <p>As students, our team noticed a problem that every K12 and college campus:
         A difficulty for students and faculty to track down and contact the correct people in
-        an efficient manner. Flow helps students and teachers identify the people they need
-        to contact to get in contact with in relation to a certain task</p>
+        an efficient manner. <span id = "flow">Flow</span> helps students and teachers identify the people they need
+        to contact to get in contact with in relation to a certain task.</p>
 
     <h2>How does it work?</h2>
-    <p>Flow keeps track of a list of departments, as well as a list of Tasks. Both lists are correlated
+    <p><span id = "flow">Flow</span> keeps track of a list of departments, as well as a list of Tasks. Both lists are correlated
     so that users can easily determine the department they need to get in contact with to discuss a certain task</p>
 
     <h2>How do I use it?</h2>
-    <p>Flow is a web application that can be accessed from any device with an internet connection.
+    <p><span id = "flow">Flow</span> is a web application that can be accessed from any device with an internet connection.
         Click "Tasks" or "Departments" at the top of this page to look at a demo of this project</p>
 
 </body>

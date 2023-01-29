@@ -6,3 +6,26 @@
 #moveRight {
     margin-right: 5px;
 }
+
+body {
+    color: #ffd6d6;
+    background-color: #0e1642;
+}
+
+button {
+    border-radius: 0;
+    border-top: 1px solid #ffd6d6;
+    border-bottom: 1px solid #ffd6d6;
+}
+h1, h2, h3 {
+    background: -webkit-linear-gradient(#ffd6d6, #ad91af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#flow {
+    background: -webkit-linear-gradient(#ea4c4c, #e37dea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
