@@ -98,7 +98,8 @@ def departments():
         elif delete.validate():
             departments_list.pop(int(request.form['index']) - 1)
             return redirect(url_for('departments'))
-    return render_template('departments.html', form=form, departments=departments_list, edit=edit, delete=delete, errors=errors)
+    return render_template('departments.html', form=form, departments=departments_list,
+                           edit=edit, delete=delete, errors=errors)
 
 
 if __name__ == '__main__':
