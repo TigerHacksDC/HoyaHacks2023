@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Main Page</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
     <h1>Flow</h1>
     <h3>Trello, but for education</h3>
     <br>
-    <form action="/departments" method="post">
-        <button name="departmentsBtn" type="submit">Departments</button>
-    </form>
-    <form action="/tasks" method="post">
-        <button name="tasksBtn" type="submit">Tasks</button>
-    </form>
+    <div class="inline">
+        <form action="/departments" method="post">
+            <button name="departmentsBtn" type="submit">Departments</button>
+        </form>
+        <form action="/tasks" method="post">
+            <button id = "moveRight" name="tasksBtn" type="submit">Tasks</button>
+        </form>
+    </div>
     <br>
     <h2>What is Flow?</h2>
     <p>As students, our team noticed a problem that every K12 and college campus:

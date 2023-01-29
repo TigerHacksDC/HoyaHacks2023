@@ -1,0 +1,8 @@
+
+.inline {
+    display: flex;
+
+}
+#moveRight {
+    margin-right: 5px;
+}
