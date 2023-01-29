@@ -13,3 +13,8 @@ body {
     border : 1px solid #ffd6d6;
     border-radius: 10px;
 }
+
+input{
+        width:100px;
+        height:20px;
+}

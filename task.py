@@ -1,10 +1,6 @@
 from department import Department
 
-tasks = []
-
-
-def getTasks():
-    return tasks
+tasks_list = []
 
 
 class Task:
@@ -15,4 +11,4 @@ class Task:
             self.department = department
         else:
             self.department = Department(department, [])
-        tasks.append(self)
+        tasks_list.append(self)

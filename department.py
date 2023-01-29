@@ -2,7 +2,21 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import InputRequired, Length, ValidationError
 
-departments = []
+departments_list = []
+
+
+def contains_member(member):
+    for department in departments_list:
+        if member in department.members:
+            return True
+    return False
+
+
+def contains_department_name(name):
+    for department in departments_list:
+        if name == department.name:
+            return True
+    return False
 
 
 class Department:
@@ -12,7 +26,7 @@ class Department:
             self.members = members
         else:
             self.members = [members]
-        departments.append(self)
+        departments_list.append(self)
 
 
 class DepartmentForm(FlaskForm):
