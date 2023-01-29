@@ -51,26 +51,29 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/task', methods=['GET', 'POST'])
-def task():
+@app.route('/tasks', methods=['GET', 'POST'])
+def tasks():
     errors = []
     form = TaskForm()
     edit = EditTask()
     delete = DeleteTask()
     if form.validate_on_submit() or edit.validate_on_submit() or delete.validate_on_submit():
         if form.validate():
-            Task(name=form.name.data, description=form.description.data, department=form.department.data)
-            return redirect(url_for('task'))
+            if contains_department_name(form.department.data):
+                Task(name=form.name.data, description=form.description.data, department=form.department.data)
+                return redirect(url_for('tasks'))
+            else:
+                errors.append('Department does not exist. You must create a department before creating a task.')
         elif edit.validate():
             if edit.select.data == 'Edit Name':
                 tasks_list[int(request.form['index']) - 1].name = edit.field.data
             else:
                 tasks_list[int(request.form['index']) - 1].description = edit.field.data
-            return redirect(url_for('task'))
+            return redirect(url_for('tasks'))
         elif delete.validate():
             tasks_list.pop(int(request.form['index']) - 1)
-            return redirect(url_for('task'))
-    return render_template('task.html', form=form, tasks=tasks_list, edit=edit, delete=delete, errors=errors)
+            return redirect(url_for('tasks'))
+    return render_template('tasks.html', form=form, tasks=tasks_list, edit=edit, delete=delete, errors=errors)
 
 
 @app.route('/departments', methods=['GET', 'POST'])

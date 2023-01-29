@@ -7,14 +7,32 @@
 
 body {
     color: #ffd6d6;
-    background-color: #0e1642; /* light pink */
+    background-color: #0e1642;
+
 }
 #task {
     border : 1px solid #ffd6d6;
     border-radius: 10px;
 }
 
-input{
-        width:100px;
-        height:20px;
+input[type="text"] {
+    width:auto;
+    height:30px;
+    border: 1px #ffffff;
+    background: #2d3b85;
+    color: white;
+    outline: 1px white;
+}
+input[type="submit"] {
+    border: 1px #ffffff;
+    background: #2d3b85;
+    color: white;
+    outline: 1px white;
+}
+#parent {
+    white-space: nowrap;
+}
+.child {
+    display: inline-block;
+
 }
