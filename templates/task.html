@@ -18,11 +18,17 @@
     </div>
     <h2>Task List</h2>
     {% for item in tasks %}
+        <div id = "task">
         <h1>{{ item.name }}</h1>
         <p>{{ item.description }}</p>
-        <p>{{ item.department }}</p>
-        <p>Edit {{ edit.hidden_tag() }} {{ edit.select }} {{ edit.field }} {{ edit.submit }}</p>
+        <p>{{ item.department.name }}: {{ item.department.members }}</p>
+        <p>{{loop.index}}</p>
+        <form action="" method = "POST">
+            {% set edit.hidden.value = loop.index %}
+            <p >Edit {{ edit.hidden_tag() }} {{ edit.select }} {{ edit.field }} {{ edit.submit }}</p>
+        </form>
         <br>
+        </div>
     {% endfor %}
 </body>
 </html>

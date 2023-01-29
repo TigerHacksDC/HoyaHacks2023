@@ -1,19 +1,24 @@
 from flask import Flask, render_template, redirect, url_for
 from task import Task, tasks
-from department import Department, departments
+from department import Department, departments, DepartmentForm
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
-from wtforms.validators import InputRequired, Length, ValidationError
+from wtforms import StringField, SubmitField, SelectField, HiddenField
+from wtforms.validators import InputRequired, Length
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'aRandomString'
-
+app.config['SECRET_KEY'] = app.config.from_pyfile('config.py')
 
 class EditTask(FlaskForm):
-    select = SelectField('select', choices=[('Edit Task', 'Edit Task'), ('Delete Task', 'Delete Task')])
+    hidden = HiddenField('hidden')
+    select = SelectField('select', choices=[('Edit Name', 'Edit Name'), ('Delete Description', 'Description Task')])
     field = StringField('field', validators=[InputRequired()])
     submit = SubmitField('Submit')
+
+
+class DeleteTask(FlaskForm):
+    submit = SubmitField('Delete Task')
+
 
 class TaskForm(FlaskForm):
     name = StringField('name', validators=[InputRequired(), Length(min=1, max=16)])
@@ -31,9 +36,22 @@ def index():
 def task():
     form = TaskForm()
     edit = EditTask()
-    if form.validate_on_submit():
-        Task(name=form.name.data, description=form.description.data, department=form.department.data)
-    return render_template('task.html', form=form, tasks=tasks, edit=edit)
+    delete = DeleteTask()
+    if form.validate_on_submit() or edit.validate_on_submit() or delete.validate_on_submit():
+        if form.validate():
+            Task(name=form.name.data, description=form.description.data, department=form.department.data)
+            return redirect(url_for('task'))
+
+        elif edit.validate():
+            if edit.select.data == 'Edit Name':
+                tasks[int(edit.hidden.data)].name = edit.field.data
+            else:
+                tasks[int(edit.hidden.data)].description = edit.field.data
+            return redirect(url_for('task'))
+        elif delete.validate():
+            tasks.pop(int(0))
+            return redirect(url_for('task'))
+    return render_template('task.html', form=form, tasks=tasks, edit=edit, delete=delete)
 
 
 # @app.route('/task/<task>')
@@ -43,7 +61,8 @@ def task():
 
 @app.route('/departments')
 def departments_list():
-    return render_template('departments.html', departments=departments)
+    form = DepartmentForm()
+    return render_template('departments.html', departments=departments, form=form)
 
 
 if __name__ == '__main__':
