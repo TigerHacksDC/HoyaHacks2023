@@ -6,6 +6,9 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
+    <form action="/cleardepartments/" method="post">
+        <button name="clearBtn" type="submit">Clear Departments</button>
+    </form>
     <div id ="parent">
     <h1>Add a new department</h1>
     <div class="child">

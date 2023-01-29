@@ -8,7 +8,12 @@
     <h1>Flow</h1>
     <h3>Trello, but for education</h3>
     <br>
-        <button onclick="{{ url_for('tasks') }}">Tasks</button>
+    <form action="/departments" method="post">
+        <button name="departmentsBtn" type="submit">Departments</button>
+    </form>
+    <form action="/tasks" method="post">
+        <button name="tasksBtn" type="submit">Tasks</button>
+    </form>
     <br>
     <h2>What is Flow?</h2>
     <p>As students, our team noticed a problem that every K12 and college campus:

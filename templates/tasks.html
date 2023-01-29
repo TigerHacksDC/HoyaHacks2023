@@ -6,8 +6,11 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
-    <h1>Add a new task</h1>
+    <form action="/cleartasks/" method="post">
+        <button name="clearBtn" type="submit">Clear Tasks</button>
+    </form>
 
+    <h1>Add a new task</h1>
     <div clsss = "child">
         <form action="" method = "POST">
             {{ form.hidden_tag() }}

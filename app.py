@@ -105,5 +105,17 @@ def departments():
                            edit=edit, delete=delete, errors=errors)
 
 
+@app.route('/cleartasks/', methods=['GET', 'POST'])
+def clearTasks():
+    tasks_list.clear()
+    return redirect(url_for('tasks'))
+
+
+@app.route('/cleardepartments/', methods=['GET', 'POST'])
+def clearDepartments():
+    departments_list.clear()
+    return redirect(url_for('departments'))
+
+
 if __name__ == '__main__':
     app.run()
